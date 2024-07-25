@@ -7,8 +7,13 @@ CMyString::CMyString() {
 	cout << "CMyString()" << endl;
 }
 
+CMyString::CMyString(const char* param) {
+	cout << "CMyString(const char*)" << endl;
+	this->setData(param);
+}
+
 CMyString::CMyString(const CMyString& rhs) {
-	cout << "CMyString(rhs)" << endl;
+	cout << "CMyString(const CMyString&)" << endl;
 	this->setData(rhs.getData());
 }
 

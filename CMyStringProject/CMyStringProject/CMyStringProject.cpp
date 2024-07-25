@@ -3,15 +3,18 @@
 
 using namespace std;
 
+//void printHello(const char* param) {
+//    cout << param << endl;
+//}
+
+void printHello(const CMyString& param) {
+    cout << param << endl;
+}
+
 int main()
 {
-    CMyString hello;
-    hello.setData("Hello");
-    cout << hello.getData() << endl;
-
-    CMyString world;
-    world = hello;
-    cout << world.getData() << endl;
+    // printHello("Hello!");  <- Error
+    printHello( CMyString("Hello!") );
 
     return 0;
 }
