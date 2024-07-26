@@ -6,6 +6,7 @@ public:
 	CMyString();
 	explicit CMyString(const char* param);
 	CMyString(const CMyString& rhs);
+	CMyString(CMyString&& rhs) noexcept;
 	~CMyString();
 
 	const char* getData() const {
@@ -23,6 +24,8 @@ public:
 	void operator=(const CMyString& rhs) {
 		this->setData(rhs.getData());
 	}
+
+	void operator=(CMyString&& rhs) noexcept;
 
 	void setData(const char* pParam);
 

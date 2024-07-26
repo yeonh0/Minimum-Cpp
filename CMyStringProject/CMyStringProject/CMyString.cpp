@@ -17,6 +17,20 @@ CMyString::CMyString(const CMyString& rhs) {
 	this->setData(rhs.getData());
 }
 
+CMyString::CMyString(CMyString&& rhs) noexcept {
+	cout << "CMyString(CMyString&&) - move" << endl;
+	delete[] this->m_pszData;
+	this->m_pszData = rhs.m_pszData;
+	rhs.m_pszData = nullptr;
+}
+
+void CMyString::operator=(CMyString&& rhs) noexcept {
+	cout << "operator=(CMyString&&) - move" << endl;
+	delete[] this->m_pszData;
+	this->m_pszData = rhs.m_pszData;
+	rhs.m_pszData = nullptr;
+}
+
 CMyString::~CMyString() {
 	cout << "~CMyString()" << endl;
 	delete[] m_pszData;

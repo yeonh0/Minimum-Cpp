@@ -3,18 +3,20 @@
 
 using namespace std;
 
-//void printHello(const char* param) {
-//    cout << param << endl;
-//}
+CMyString getHello() {
+    CMyString hello;
+    hello.setData("Hello");
 
-void printHello(const CMyString& param) {
-    cout << param << endl;
+    return hello;
 }
 
 int main()
 {
-    // printHello("Hello!");  <- Error
-    printHello( CMyString("Hello!") );
+    CMyString result;
+    result = ::getHello();
+    cout << result << endl;
+
+    CMyString test(move(::getHello()));
 
     return 0;
 }
