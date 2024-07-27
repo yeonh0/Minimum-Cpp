@@ -17,7 +17,7 @@ public:
 		return m_pszData;
 	}
 
-	size_t getLegnth() const {
+	size_t getLength() const {
 		return this->length;
 	}
 
@@ -25,11 +25,17 @@ public:
 		this->setData(rhs.getData());
 	}
 
+	CMyString operator+(const CMyString& rhs);
+
 	void operator=(CMyString&& rhs) noexcept;
 
 	void setData(const char* pParam);
+
+	size_t append(const char* pParam);
 
 private:
 	char* m_pszData = nullptr;	
 	size_t length = 0;
 };
+
+CMyString operator+(const char* pLeft, const CMyString& rhs);

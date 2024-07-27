@@ -3,20 +3,13 @@
 
 using namespace std;
 
-CMyString getHello() {
-    CMyString hello;
-    hello.setData("Hello");
-
-    return hello;
-}
-
 int main()
 {
-    CMyString result;
-    result = ::getHello();
-    cout << result << endl;
+    CMyString Hello("Hello ");
+    CMyString World("World");
 
-    CMyString test(move(::getHello()));
+    cout << Hello + World << endl;
+    cout << "(const char[])Hello " + World << endl;
 
     return 0;
 }
