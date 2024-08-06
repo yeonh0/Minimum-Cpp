@@ -2,6 +2,7 @@
 
 class CMyString
 {
+	friend CMyString operator+(const char*, const CMyString&);
 public:
 	CMyString();
 	explicit CMyString(const char* param);
@@ -27,6 +28,7 @@ public:
 	}
 
 	CMyString operator+(const CMyString& rhs);
+	CMyString operator+(const char* pParam);
 
 	CMyString& operator+=(const char* pParam);
 
