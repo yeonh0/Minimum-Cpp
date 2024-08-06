@@ -21,13 +21,18 @@ public:
 		return this->length;
 	}
 
-	void operator=(const CMyString& rhs) {
+	CMyString& operator=(const CMyString& rhs) {
 		this->setData(rhs.getData());
+		return *this;
 	}
 
 	CMyString operator+(const CMyString& rhs);
 
-	void operator=(CMyString&& rhs) noexcept;
+	CMyString& operator+=(const char* pParam);
+
+	char operator[](int index) const;
+
+	CMyString& operator=(CMyString&& rhs) noexcept;
 
 	void setData(const char* pParam);
 

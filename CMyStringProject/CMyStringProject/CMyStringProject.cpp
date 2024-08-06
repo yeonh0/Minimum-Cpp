@@ -6,10 +6,13 @@ using namespace std;
 int main()
 {
     CMyString Hello("Hello ");
-    CMyString World("World");
+    Hello += "World";
 
-    cout << Hello + World << endl;
-    cout << "(const char[])Hello " + World << endl;
+    cout << Hello << endl;
+    cout << Hello[6] << endl;
+
+    cout << Hello[-1] << endl;
+    cout << Hello[20] << endl;
 
     return 0;
 }

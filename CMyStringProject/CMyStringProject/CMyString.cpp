@@ -25,18 +25,39 @@ CMyString::CMyString(CMyString&& rhs) noexcept {
 }
 
 CMyString CMyString::operator+(const CMyString& rhs) {
-	cout << "operator(const CMyString&)" << endl;
+	cout << "operator+(const CMyString&)" << endl;
 	CMyString result(this->m_pszData);
 	result.append(rhs.getData());
 
 	return result;
 }
 
-void CMyString::operator=(CMyString&& rhs) noexcept {
+CMyString& CMyString::operator+=(const char* pParam) {
+	cout << "operator+=(const char*)" << endl;
+	this->append(pParam);
+
+	return *this;
+}
+
+char CMyString::operator[](int index) const {
+	cout << "operator[]" << endl;
+	if (index < 0 || index >= length)
+		return 0;
+	
+	if (this->m_pszData == nullptr)
+		return 0;
+
+	return m_pszData[index];
+}
+
+
+CMyString& CMyString::operator=(CMyString&& rhs) noexcept {
 	cout << "operator=(CMyString&&) - move" << endl;
 	delete[] this->m_pszData;
 	this->m_pszData = rhs.m_pszData;
 	rhs.m_pszData = nullptr;
+
+	return *this;
 }
 
 CMyString::~CMyString() {
