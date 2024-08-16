@@ -27,6 +27,11 @@ public:
 		return *this;
 	}
 
+	CMyString& operator=(const char* pParam) {
+		this->setData(pParam);
+		return *this;
+	}
+
 	CMyString operator+(const CMyString& rhs);
 	CMyString operator+(const char* pParam);
 
