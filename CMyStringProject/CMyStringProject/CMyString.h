@@ -8,7 +8,7 @@ public:
 	explicit CMyString(const char* param);
 	CMyString(const CMyString& rhs);
 	CMyString(CMyString&& rhs) noexcept;
-	~CMyString();
+	virtual ~CMyString();
 
 	const char* getData() const {
 		return m_pszData;
@@ -42,6 +42,7 @@ public:
 	CMyString& operator=(CMyString&& rhs) noexcept;
 
 	void setData(const char* pParam);
+	virtual void onSetData(const char*& param) {}
 
 	size_t append(const char* pParam);
 

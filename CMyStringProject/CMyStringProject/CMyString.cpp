@@ -74,12 +74,17 @@ CMyString::~CMyString() {
 }
 
 void CMyString::setData(const char* pParam) {
+	// 미래에 파생 클래스에서 호출 할 함수
+	onSetData(pParam);
+
 	if (m_pszData != nullptr)
 		delete[] m_pszData;
-	length = strlen(pParam);
+
+	size_t length = strlen(pParam);
 	m_pszData = new char[length + 1];
 
 	strcpy_s(m_pszData, length + 1, pParam);
+	this->length = length;
 }
 
 size_t CMyString::append(const char* pParam) {

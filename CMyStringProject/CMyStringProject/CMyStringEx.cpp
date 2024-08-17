@@ -11,12 +11,24 @@ CMyStringEx::~CMyStringEx() {
 	cout << "~CMyStringEx()" << endl;
 }
 
+// Called by Framework
+void CMyStringEx::onSetData(const char*& param) {
+	cout << "CMyStringEx::onSetData" << endl;
+	if (param != nullptr) {
+		if (strcmp(param, "¸Û¸ÛÀÌ¾Æµé") == 0) {
+			param = "¿ì¸®¿¹»Û¾Æµé";
+		}
+	}
+
+	CMyString::onSetData(param);
+}
+
 CMyStringEx& CMyStringEx::operator=(const char* pParam) {
 	this->setData(pParam);
 	return *this;
 }
 
-
+/*
 void CMyStringEx::setData(const char* pParam)
 {
 	cout << "CMyStringEx::setData()" << endl;
@@ -29,3 +41,4 @@ void CMyStringEx::setData(const char* pParam)
 
 	CMyString::setData(pParam);
 }
+*/

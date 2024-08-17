@@ -6,16 +6,11 @@ using namespace std;
 
 int main()
 {
-    CMyStringEx data;
-    data = "Hello";
-    cout << data << endl;
+    CMyString* pstrData = new CMyStringEx;
+    pstrData->setData("멍멍이아들");
+    cout << pstrData->getData() << endl;
 
-    data = "멍멍이아들";
-    cout << data << endl;
-
-    CMyString &rdata = data;
-    rdata = "멍멍이아들";
-    cout << rdata << endl;
+    delete pstrData;
 
     return 0;
 }
